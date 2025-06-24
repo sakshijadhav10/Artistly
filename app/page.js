@@ -43,7 +43,7 @@ export default function HomePage() {
               </button>
             </Link>
             <Link href="/onboard">
-              <button className="bg-white text-indigo-700 border border-indigo-600 hover:bg-indigo-50 px-6 py-3 rounded-full font-medium">
+              <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-medium">
                 Onboard an Artist
               </button>
             </Link>

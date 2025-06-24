@@ -20,12 +20,12 @@ export default function ManagerDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 p-6">
       <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <h1 className="text-3xl font-bold text-indigo-700 mb-6 text-center">
           📋 Manager Dashboard
         </h1>
-
+ 
         {submissions.length > 0 ? (
           <Table data={submissions} onView={handleView} />
         ) : (
