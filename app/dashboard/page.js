@@ -1,34 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// Dummy artist submissions
-const mockSubmissions = [
-  {
-    id: 1,
-    name: "Riya Sharma",
-    category: "Singer",
-    location: "Mumbai",
-    fee: "₹10,000 - ₹20,000",
-  },
-  {
-    id: 2,
-    name: "Amit Verma",
-    category: "Dancer",
-    location: "Delhi",
-    fee: "₹5,000 - ₹10,000",
-  },
-  {
-    id: 3,
-    name: "DJ Sonic",
-    category: "DJ",
-    location: "Bangalore",
-    fee: "₹20,000+",
-  },
-];
-
+// Manager Dashboard Page
 export default function ManagerDashboardPage() {
-  const [submissions, setSubmissions] = useState(mockSubmissions);
+  const [submissions, setSubmissions] = useState([]);
+
+  useEffect(() => {
+    fetch("/data/artists.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setSubmissions(data);
+      })
+      .catch((err) => console.error("Error loading submissions:", err));
+  }, []);
 
   const handleView = (artist) => {
     alert(`Viewing profile for: ${artist.name}`);
@@ -51,7 +36,7 @@ export default function ManagerDashboardPage() {
   );
 }
 
-// Reusable Table Component
+// ✅ Reusable Table Component
 function Table({ data, onView }) {
   return (
     <div className="overflow-x-auto">
